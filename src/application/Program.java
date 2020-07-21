@@ -1,4 +1,4 @@
-package aplication;
+package application;
 
 public class Program {
     
