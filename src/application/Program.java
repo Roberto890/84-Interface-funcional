@@ -16,29 +16,31 @@ public class Program {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        //5ºforma de fazer ta aqui
         double min = 100;
-        Predicate<Product> pred = p -> p.getPrice() >= min;
+        //5ºforma de fazer ta aqui - EXPRESSÃO LAMBDA DECLARADA
+        //Predicate<Product> pred = p -> p.getPrice() >= min;
 
         System.out.println("After:");
         list.forEach(System.out::println);
 
-        //jeito q faziamos mas nao entendiamos o motivo
-        //1º forma de fazer
-        //list.removeIf(p -> p.getPrice() >= 100);
+        
 
         //ela é uma interface funcional pq so tem um metodo a ser aplicado
-        //2º forma de fazer
+        //1ª forma de fazer - PREDICATE IMPLEMENTION
         //list.removeIf(new ProductPredicate());
 
-        //3º forma de fazer
+        //2ª forma de fazer - REFERENCE METHOD COM MÉTODO ESTATICO
         //list.removeIf(Product::staticProductPredicate);
 
-        //4º forma de fazer
+        //3ª forma de fazer - REFERENCE METHOD COM MÉTODO NÃO ESTATICO
         //list.removeIf(Product::nonStaticProductPredicate);
 
-        //5º forma de fazer
-        list.removeIf(pred);
+        //4ª forma de fazer - EXPRESSÃO LAMBDA DECLARADA
+        //list.removeIf(pred);
+
+        //jeito q faziamos mas nao entendiamos o motivo
+        //5ª forma de fazer - EXPRESSÃO LAMBDA INLINE(em vez de declarar ja passa os dados na função)
+        list.removeIf(p -> p.getPrice() >= min);
 
         System.out.println("\nBefore:");
 
